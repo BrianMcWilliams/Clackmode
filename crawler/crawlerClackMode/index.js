@@ -27,7 +27,7 @@ app.listen(8080, () => {
 	getDataForInterestChecks();
 
 	// console.log('Grabbing group buy data')
-	// getDataForGroupBuys();
+	getDataForGroupBuys();
 })
 
 async function getDataForInterestChecks() {
@@ -137,7 +137,14 @@ async function getDataForGroupBuys() {
 				await page.waitForSelector('title');
 			
 				const title = await page.title();
-				const GB = {Title: title, Url: url};
+				const post = await page.evaluate(() => document.querySelector('#quickModForm > div:nth-child(1) > div > div.postarea > div.post').innerHTML);
+				const images = await page.evaluate(() => document.querySelectorAll('#quickModForm > div:nth-child(1) > div > div.postarea > div.post > div.inner > a'));
+				const GB = {
+					Title: title, 
+					Url: url, 
+					Post: post,
+					Images: images
+				};
 
 				if(!groupBuysTemp.includes(GB))
 				{
