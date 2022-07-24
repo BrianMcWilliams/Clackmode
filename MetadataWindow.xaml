@@ -1,0 +1,48 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrackLayeringNFT"
+        xmlns:W3cXsd2001="clr-namespace:System.Runtime.Remoting.Metadata.W3cXsd2001;assembly=mscorlib" x:Class="TrackLayeringNFT.MetadataWindow"
+        mc:Ignorable="d"
+        Title="Metadata Window" Height="450" Width="1039">
+    <Grid Margin="0,0,0,0" MinWidth="916" MinHeight="450">
+        <Button Content="Select folder" HorizontalAlignment="Left" Margin="8,43,0,0" VerticalAlignment="Top" Width="166" Height="41" Click="Button_Click"/>
+        <Label Content="Select your layers folder." HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top"/>
+        <Label Content=" Note that your folder structure will be used as-is for layer generation." HorizontalAlignment="Left" Margin="382,18,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <TreeView x:Name="FolderView" HorizontalAlignment="Left" Margin="190,41,0,0" Width="510">
+            <TreeView.Resources>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image x:Name="img"  Width="20" Height="20" Stretch="Fill" 
+                                       Source="{Binding Tag, Converter={x:Static local:HeaderToImageConverter.Instance}, RelativeSource={RelativeSource AncestorType={x:Type TreeViewItem}, Mode=FindAncestor}}"       
+                                       />
+                                    <TextBlock Text="{Binding}" Margin="5,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TreeView.Resources>
+        </TreeView>
+        <Image x:Name="PreviewImage" HorizontalAlignment="Left" Height="200" Margin="705,207,0,0" VerticalAlignment="Top" Width="202"/>
+        <Grid Margin="705,41,0,0" Height="319" VerticalAlignment="Top" HorizontalAlignment="Left" Width="316">
+
+            <Label Content="Current Selection:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="135" FontSize="16"/>
+            <Label x:Name="SelectionName" Content="Label" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="50" Height="35" FontSize="16"/>
+            <CheckBox x:Name="UniformProbability" Content="All children have same probability" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="215" Checked="UniformProbability_Checked"/>
+            <Label Content="Probability :" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="75"/>
+            <TextBox x:Name="ProbabilityTextBox" HorizontalAlignment="Left" Height="23" Margin="85,41,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="35"/>
+            <Label Content="%" HorizontalAlignment="Left" Margin="120,38,0,0" VerticalAlignment="Top" Width="20"/>
+            <ComboBox x:Name="ExclusionDropDown" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Width="216" ToolTip="If the currently selected layer is applied, the layers selected here should not be present in the NFT"/>
+            <Label Content="Eclude these layers :" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" ToolTip="If the currently selected layer is applied, the layers selected here should not be present in the NFT"/>
+            <Button x:Name="ExclusionButton" Content="Exclude" HorizontalAlignment="Left" Margin="231,127,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="ExclusionButton_Click"/>
+        </Grid>
+        <ProgressBar x:Name="TreeViewProgress" HorizontalAlignment="Left" Height="33" Margin="190,207,0,0" VerticalAlignment="Top" Width="510"/>
+        <Button x:Name="ConfirmButton" Content="Confirm" HorizontalAlignment="Left" Margin="700,365,0,0" VerticalAlignment="Top" Width="331" Height="54" FontSize="36" FontWeight="Bold" Background="#FF399E12" Click="ConfirmButton_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="TrackLayeringNFT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrackLayeringNFT"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="119" Width="604" MinWidth="800" MinHeight="195" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="639*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Mix" HorizontalAlignment="Left" Margin="455,57,0,0" VerticalAlignment="Top" Width="172" Height="99" Click="DrawButton_Click" FontSize="36" IsEnabled="False" Grid.Column="1"/>
+        <Button x:Name="GenerateButton" Content="Configure" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="177" Height="99" Click="Generate_Click" FontSize="36" Grid.ColumnSpan="2"/>
+        <Label Content="Metadata" HorizontalAlignment="Left" Margin="42,10,0,0" VerticalAlignment="Top" Width="115" FontSize="24" Grid.ColumnSpan="2" Height="42"/>
+        <Label Content="Music" HorizontalAlignment="Left" Margin="513,5,0,0" VerticalAlignment="Top" Width="71" FontSize="24" Grid.Column="1" Height="42"/>
+        <Button x:Name="DrawButton" Content="Draw" HorizontalAlignment="Left" Margin="159,57,0,0" VerticalAlignment="Top" Width="177" Height="99" Click="DrawButton_Click" FontSize="36" IsEnabled="False" Grid.Column="1"/>
+        <Label Content="Art" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Width="71" FontSize="24" Grid.Column="1" Height="42"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="69" Margin="60,71,0,0" VerticalAlignment="Top" Width="76" Source="1200px-Feather-arrows-arrow-right.svg.png"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="69" Margin="360,71,0,0" VerticalAlignment="Top" Width="76" Source="1200px-Feather-arrows-arrow-right.svg.png"/>
+
+    </Grid>
+</Window>
